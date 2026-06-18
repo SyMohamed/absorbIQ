@@ -648,3 +648,10 @@ h1, h2, h3 { line-height: 1.12; font-weight: 700; letter-spacing: -0.02em; }
 .video-frame iframe { position: absolute; inset: 0; z-index: 3; width: 100%; height: 100%; border: 0; opacity: 0; transition: opacity .6s var(--ease); }
 .video-frame.playing .video-poster, .video-frame.playing .video-play, .video-frame.playing::after { opacity: 0; pointer-events: none; }
 .video-frame.playing iframe { opacity: 1; }
+
+/* award gallery card wrapper (Geneva carousel inside a card) */
+.award-gallery { padding: 16px; }
+.award-gallery .ag-label { margin-bottom: 12px; }
+.award-gallery .carousel { margin: 0; }
+.award-gallery .carousel-viewport { aspect-ratio: 16 / 9; }
+.award-gallery .carousel-fallback .cf-text { color: var(--muted-2); font-size: 0.9rem; }

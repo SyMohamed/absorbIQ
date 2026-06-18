@@ -359,7 +359,7 @@
       loaded = true;
       const id = frame.dataset.youtube;
       const iframe = document.createElement("iframe");
-      iframe.src = "https://www.youtube-nocookie.com/embed/" + id +
+      iframe.src = "https://www.youtube.com/embed/" + id +
         "?autoplay=1&rel=0&modestbranding=1&playsinline=1";
       iframe.title = "AbsorbIQ technology explainer";
       iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
