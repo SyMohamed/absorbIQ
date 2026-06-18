@@ -303,8 +303,8 @@ h1, h2, h3 { line-height: 1.12; font-weight: 700; letter-spacing: -0.02em; }
   -webkit-mask-composite: xor; mask-composite: exclude; opacity: .5; transition: opacity .4s;
 }
 .member:hover .avatar::after { opacity: 1; }
-.member .avatar img { width: 100%; height: 100%; object-fit: cover; }
-.member .avatar .initials { font-size: 2.4rem; font-weight: 700; color: var(--teal-soft); }
+.member .avatar img { grid-area: 1 / 1; width: 100%; height: 100%; object-fit: cover; }
+.member .avatar .initials { grid-area: 1 / 1; font-size: 2.4rem; font-weight: 700; color: var(--teal-soft); }
 .member h3 { font-size: 1.15rem; }
 .member .role { color: var(--teal-soft); font-size: 0.9rem; margin: 4px 0 6px; }
 .member p { color: var(--muted); font-size: 0.86rem; }

@@ -36,15 +36,16 @@ hint. Replace the placeholder `<div class="ph">…</div>` with:
 <img src="assets/img/projects/shock-tube.jpg" alt="Shock-tube validation" />
 ```
 
-**Team headshots** (`#team` section): replace the initials block:
+**Team headshots** (`#team` section): the three founder cards already reference
+photos and fall back to initials automatically if a file is missing. Just drop the
+images in `assets/img/team/` with these exact names:
 
-```html
-<div class="avatar">
-  <img src="assets/img/team/mohamed.jpg" alt="Mohamed" />
-</div>
-```
+| Founder              | Role                          | File                        |
+|----------------------|-------------------------------|-----------------------------|
+| Mohamed Sy           | Co-Founder & CEO              | `assets/img/team/sy.jpg`    |
+| Khalil Djebbi        | Co-Founder & CTO              | `assets/img/team/khalil.jpg`|
+| Prof. Aamir Farooq   | Co-Founder & Scientific Advisor | `assets/img/team/farooq.jpg`|
 
-Drop the files into `assets/img/projects/` or `assets/img/team/` and reference them.
 Recommended sizes: project shots ~1200×900 (4:3), headshots square ~600×600.
 
 ## Run locally
