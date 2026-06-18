@@ -346,3 +346,29 @@
     refresh();
   });
 })();
+
+/* =============================================================
+   Lite YouTube — load & autoplay the player inline on click
+   ============================================================= */
+(function () {
+  "use strict";
+  document.querySelectorAll(".video-frame[data-youtube]").forEach((frame) => {
+    let loaded = false;
+    function play() {
+      if (loaded) return;
+      loaded = true;
+      const id = frame.dataset.youtube;
+      const iframe = document.createElement("iframe");
+      iframe.src = "https://www.youtube-nocookie.com/embed/" + id +
+        "?autoplay=1&rel=0&modestbranding=1&playsinline=1";
+      iframe.title = "AbsorbIQ technology explainer";
+      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      iframe.setAttribute("allowfullscreen", "");
+      frame.appendChild(iframe);
+      // next frame so the opacity transition runs
+      requestAnimationFrame(() => frame.classList.add("playing"));
+    }
+    frame.addEventListener("click", play);
+    frame.querySelector(".video-play")?.addEventListener("click", (e) => { e.stopPropagation(); play(); });
+  });
+})();
