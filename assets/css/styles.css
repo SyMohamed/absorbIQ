@@ -553,4 +553,11 @@ h1, h2, h3 { line-height: 1.12; font-weight: 700; letter-spacing: -0.02em; }
 .patent-banner p { color: var(--ink); font-size: 0.98rem; }
 .patent-banner p b { color: var(--teal-soft); }
 
-@media (max-width: 720px) { .awards { grid-template-columns: 1fr; } }
+/* awards stay side by side at all widths */
+@media (max-width: 720px) {
+  .awards { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .award { padding: 18px; }
+  .award h3 { font-size: 1.1rem; }
+  .award p { font-size: 0.86rem; }
+  .award .tag.gold { font-size: 0.62rem; padding: 4px 9px; }
+}
