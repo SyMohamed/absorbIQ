@@ -287,3 +287,62 @@
   }, { rootMargin: "-45% 0px -50% 0px" });
   sections.forEach((s) => spy.observe(s));
 })();
+
+/* =============================================================
+   Geneva photo carousel — auto-slide, dots, missing-image safe
+   ============================================================= */
+(function () {
+  "use strict";
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  document.querySelectorAll("[data-carousel]").forEach((root) => {
+    const track = root.querySelector(".carousel-track");
+    const dotsWrap = root.querySelector(".carousel-dots");
+    const slides = () => [...track.querySelectorAll(".slide")];
+    let index = 0, timer = null;
+
+    function goTo(i) {
+      const n = slides().length;
+      if (!n) return;
+      index = (i + n) % n;
+      track.style.transform = `translateX(${-index * 100}%)`;
+      [...dotsWrap.children].forEach((d, k) => d.classList.toggle("active", k === index));
+    }
+    const next = () => goTo(index + 1);
+    const prev = () => goTo(index - 1);
+    function start() { stop(); if (!reduce && slides().length > 1) timer = setInterval(next, 4000); }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    const restart = () => start();
+
+    function refresh() {
+      const n = slides().length;
+      root.classList.toggle("is-empty", n === 0);
+      dotsWrap.innerHTML = "";
+      if (n > 1) {
+        for (let i = 0; i < n; i++) {
+          const b = document.createElement("button");
+          b.setAttribute("aria-label", "Go to photo " + (i + 1));
+          b.addEventListener("click", () => { goTo(i); restart(); });
+          dotsWrap.appendChild(b);
+        }
+      }
+      if (index >= n) index = Math.max(0, n - 1);
+      goTo(index);
+      start();
+    }
+
+    // drop any image that fails to load, then refresh
+    root.querySelectorAll(".slide img").forEach((img) => {
+      const fail = () => { const s = img.closest(".slide"); if (s) { s.remove(); refresh(); } };
+      if (img.complete && img.naturalWidth === 0) fail();
+      else img.addEventListener("error", fail);
+    });
+
+    root.querySelector(".next")?.addEventListener("click", () => { next(); restart(); });
+    root.querySelector(".prev")?.addEventListener("click", () => { prev(); restart(); });
+    root.addEventListener("mouseenter", stop);
+    root.addEventListener("mouseleave", start);
+
+    refresh();
+  });
+})();
