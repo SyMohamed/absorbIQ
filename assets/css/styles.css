@@ -233,6 +233,24 @@ h1, h2, h3 { line-height: 1.12; font-weight: 700; letter-spacing: -0.02em; }
 .product p { color: var(--muted); font-size: 0.95rem; flex: 1; }
 .product .arrow { margin-top: 18px; color: var(--teal); display: inline-flex; gap: 8px; align-items: center; font-size: 0.9rem; }
 
+/* featured / flagship product cards (image-led) */
+.featured-products { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; margin-bottom: 56px; }
+.prod-feature { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+.prod-media { aspect-ratio: 1 / 1; background: radial-gradient(circle at 50% 40%, #0e2236, #070f1c); overflow: hidden; display: grid; place-items: center; }
+.prod-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
+.prod-feature:hover .prod-media img { transform: scale(1.04); }
+.prod-media.placeholder { border-bottom: 1px solid var(--line); }
+.prod-media .ph { color: var(--muted-2); text-align: center; padding: 20px; }
+.prod-media .ph svg { width: 40px; height: 40px; margin: 0 auto 10px; color: rgba(127,227,233,0.4); }
+.prod-media .ph span { font-size: 0.85rem; }
+.prod-body { padding: 24px 26px 26px; display: flex; flex-direction: column; flex: 1; }
+.prod-body .tag { align-self: flex-start; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal-soft); padding: 4px 11px; border-radius: 999px; border: 1px solid var(--line); margin-bottom: 14px; }
+.prod-body h3 { font-size: 1.35rem; }
+.prod-body p { color: var(--muted); font-size: 0.95rem; flex: 1; margin-top: 8px; }
+.prod-body .arrow { margin-top: 18px; color: var(--teal); display: inline-flex; gap: 8px; align-items: center; font-size: 0.9rem; }
+.prod-body .arrow svg { width: 16px; height: 16px; transition: transform .3s var(--ease); }
+.prod-feature:hover .prod-body .arrow svg { transform: translateX(4px); }
+
 /* ---------- Market ---------- */
 .market-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 40px; align-items: center; }
 .market-figure {
