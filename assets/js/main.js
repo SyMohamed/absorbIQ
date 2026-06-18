@@ -223,3 +223,67 @@
   const yr = document.getElementById("year");
   if (yr) yr.textContent = new Date().getFullYear();
 })();
+
+/* =============================================================
+   Enhancements — spotlight, tilt, magnetic, scrollspy, scroll cue
+   ============================================================= */
+(function () {
+  "use strict";
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* cursor-tracked spotlight on cards */
+  document.querySelectorAll("[data-spotlight]").forEach((el) => {
+    el.addEventListener("pointermove", (e) => {
+      const r = el.getBoundingClientRect();
+      el.style.setProperty("--mx", ((e.clientX - r.left) / r.width) * 100 + "%");
+      el.style.setProperty("--my", ((e.clientY - r.top) / r.height) * 100 + "%");
+    });
+  });
+
+  if (!reduce) {
+    /* 3D tilt */
+    document.querySelectorAll(".tilt").forEach((el) => {
+      const MAX = 7;
+      el.addEventListener("pointermove", (e) => {
+        const r = el.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width - 0.5;
+        const py = (e.clientY - r.top) / r.height - 0.5;
+        el.style.transform = `perspective(1000px) rotateX(${(-py * MAX).toFixed(2)}deg) rotateY(${(px * MAX).toFixed(2)}deg)`;
+      });
+      el.addEventListener("pointerleave", () => { el.style.transform = ""; });
+    });
+
+    /* magnetic buttons */
+    document.querySelectorAll(".magnetic").forEach((el) => {
+      el.addEventListener("pointermove", (e) => {
+        const r = el.getBoundingClientRect();
+        const mx = e.clientX - r.left - r.width / 2;
+        const my = e.clientY - r.top - r.height / 2;
+        el.style.transform = `translate(${mx * 0.25}px, ${my * 0.35}px)`;
+      });
+      el.addEventListener("pointerleave", () => { el.style.transform = ""; });
+    });
+  }
+
+  /* scroll cue fade */
+  const cue = document.querySelector(".scroll-cue");
+  if (cue) {
+    window.addEventListener("scroll", () => {
+      cue.classList.toggle("hide", window.scrollY > 180);
+    }, { passive: true });
+  }
+
+  /* scrollspy — highlight active nav link */
+  const sections = [...document.querySelectorAll("main section[id]")];
+  const linkFor = (id) => document.querySelector('.nav-links a[href="#' + id + '"]');
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        document.querySelectorAll(".nav-links a.active").forEach((a) => a.classList.remove("active"));
+        const link = linkFor(e.target.id);
+        if (link) link.classList.add("active");
+      }
+    });
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  sections.forEach((s) => spy.observe(s));
+})();
