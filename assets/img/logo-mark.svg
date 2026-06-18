@@ -1,0 +1,19 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AbsorbIQ mark">
+  <defs>
+    <linearGradient id="markBg" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0F2338"/>
+      <stop offset="1" stop-color="#0B1A2E"/>
+    </linearGradient>
+    <linearGradient id="dipFill" x1="20" y1="56" x2="100" y2="92" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1AADBE"/>
+      <stop offset="1" stop-color="#00BFA5"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="116" height="116" rx="26" fill="url(#markBg)" stroke="#1AADBE" stroke-width="2"/>
+  <!-- absorption baseline + dips -->
+  <path d="M16 64 H44 C50 64 52 88 60 88 C68 88 70 70 76 70 C82 70 84 78 90 78 H104"
+        fill="none" stroke="#E8ECF1" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M44 64 C50 64 52 88 60 88 C68 88 70 70 76 70 C82 70 84 64 84 64 Z"
+        fill="url(#dipFill)" opacity="0.85"/>
+  <circle cx="60" cy="88" r="3.6" fill="#E8ECF1"/>
+</svg>
