@@ -302,10 +302,11 @@
     let index = 0, timer = null;
 
     function goTo(i) {
-      const n = slides().length;
+      const s = slides();
+      const n = s.length;
       if (!n) return;
       index = (i + n) % n;
-      track.style.transform = `translateX(${-index * 100}%)`;
+      s.forEach((sl, k) => sl.classList.toggle("active", k === index));
       [...dotsWrap.children].forEach((d, k) => d.classList.toggle("active", k === index));
     }
     const next = () => goTo(index + 1);
