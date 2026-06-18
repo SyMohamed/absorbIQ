@@ -513,3 +513,37 @@ h1, h2, h3 { line-height: 1.12; font-weight: 700; letter-spacing: -0.02em; }
   .scroll-cue { display: none; }
   .traction-stats { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* =============================================================
+   AWARDS & PATENT
+   ============================================================= */
+:root { --gold: #e8c071; --gold-2: #f3d99a; }
+
+.awards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin-bottom: 26px; }
+.award { display: flex; flex-direction: column; }
+.award .medal {
+  width: 58px; height: 58px; border-radius: 14px; display: grid; place-items: center; margin-bottom: 18px;
+  color: var(--gold-2); background: linear-gradient(155deg, rgba(232,192,113,0.20), rgba(232,192,113,0.05));
+  border: 1px solid rgba(232,192,113,0.35); box-shadow: 0 0 22px -6px rgba(232,192,113,0.5);
+}
+.award .medal svg { width: 30px; height: 30px; }
+.award .tag.gold {
+  align-self: flex-start; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: #1a130a; font-weight: 700; padding: 5px 12px; border-radius: 999px; margin-bottom: 14px;
+  background: linear-gradient(120deg, var(--gold), var(--gold-2));
+}
+.award h3 { font-size: 1.35rem; margin-bottom: 8px; }
+.award p { color: var(--muted); font-size: 0.96rem; }
+.award:hover { border-color: rgba(232,192,113,0.45); }
+.award::after { background: radial-gradient(420px circle at var(--mx,50%) var(--my,50%), rgba(232,192,113,0.14), transparent 62%); }
+
+.patent-banner {
+  display: flex; align-items: center; gap: 18px; padding: 22px 26px; border-radius: var(--r-md);
+  background: linear-gradient(110deg, rgba(26,173,190,0.10), rgba(0,191,165,0.05)); border: 1px solid rgba(26,173,190,0.3);
+}
+.patent-banner .pb-ic { flex: none; width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center; color: var(--teal-soft); background: rgba(26,173,190,0.12); border: 1px solid var(--line); }
+.patent-banner .pb-ic svg { width: 24px; height: 24px; }
+.patent-banner p { color: var(--ink); font-size: 0.98rem; }
+.patent-banner p b { color: var(--teal-soft); }
+
+@media (max-width: 720px) { .awards { grid-template-columns: 1fr; } }
