@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=7" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=8" />
 </head>
 <body>
   <div class="bg-fx"></div>
@@ -217,31 +217,21 @@
           </article>
           <article class="award card reveal" data-d="1" data-spotlight>
             <div class="award-media">
-              <span class="medal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="15" r="6"/><path d="M12 12.5l1.2 2.4 2.6.4-1.9 1.8.45 2.6L12 18.4l-2.35 1.3.45-2.6-1.9-1.8 2.6-.4z" fill="currentColor" stroke="none"/><path d="M8.5 8L5.5 2M15.5 8l3-6M9 2h6"/></svg></span>
-              <img src="assets/img/awards/geneva-1.jpg" alt="Geneva Inventions Gold Medal with Jury Congratulations" loading="lazy" onerror="this.remove()" />
+              <div class="carousel" data-carousel aria-label="Geneva 2025 photos">
+                <div class="carousel-track">
+                  <figure class="slide"><img src="assets/img/awards/geneva-1.jpg" alt="AbsorbIQ team at Geneva 2025" loading="lazy" /></figure>
+                  <figure class="slide"><img src="assets/img/awards/geneva-2.jpg" alt="AbsorbIQ award certificate and gold medal, Geneva 2025" loading="lazy" /></figure>
+                  <figure class="slide"><img src="assets/img/awards/geneva-3.jpg" alt="AbsorbIQ Geneva Inventions diploma 2025" loading="lazy" /></figure>
+                </div>
+                <button class="carousel-btn prev" aria-label="Previous photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+                <button class="carousel-btn next" aria-label="Next photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
+                <div class="carousel-dots" role="tablist"></div>
+              </div>
             </div>
             <span class="tag gold">Gold Medal · Jury Congratulations</span>
             <h3>Geneva Inventions</h3>
             <p>Gold Medal with the Congratulations of the Jury at the International Exhibition of Inventions of Geneva — its highest distinction.</p>
           </article>
-        </div>
-
-        <!-- Geneva photo gallery (card) -->
-        <div class="award-gallery card reveal" data-spotlight>
-          <div class="ag-label"><span class="tag gold">Geneva · International Exhibition of Inventions 2025</span></div>
-          <div class="carousel" data-carousel aria-roledescription="carousel" aria-label="Geneva 2025 photos">
-            <div class="carousel-viewport">
-              <div class="carousel-track">
-                <figure class="slide"><img src="assets/img/awards/geneva-1.jpg" alt="AbsorbIQ team at the Geneva International Exhibition of Inventions 2025" loading="lazy" /></figure>
-                <figure class="slide"><img src="assets/img/awards/geneva-2.jpg" alt="AbsorbIQ award certificate and gold medal, Geneva 2025" loading="lazy" /></figure>
-                <figure class="slide"><img src="assets/img/awards/geneva-3.jpg" alt="AbsorbIQ Geneva Inventions diploma 2025" loading="lazy" /></figure>
-              </div>
-              <div class="carousel-fallback"><span class="cf-text">Photos coming soon</span></div>
-            </div>
-            <button class="carousel-btn prev" aria-label="Previous photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
-            <button class="carousel-btn next" aria-label="Next photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
-            <div class="carousel-dots" role="tablist"></div>
-          </div>
         </div>
 
         <div class="patent-banner reveal">
@@ -568,6 +558,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=7"></script>
+  <script src="assets/js/main.js?v=8"></script>
 </body>
 </html>
