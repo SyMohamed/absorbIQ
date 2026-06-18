@@ -521,12 +521,19 @@ h1, h2, h3 { line-height: 1.12; font-weight: 700; letter-spacing: -0.02em; }
 
 .awards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin-bottom: 26px; }
 .award { display: flex; flex-direction: column; }
-.award .medal {
-  width: 58px; height: 58px; border-radius: 14px; display: grid; place-items: center; margin-bottom: 18px;
-  color: var(--gold-2); background: linear-gradient(155deg, rgba(232,192,113,0.20), rgba(232,192,113,0.05));
-  border: 1px solid rgba(232,192,113,0.35); box-shadow: 0 0 22px -6px rgba(232,192,113,0.5);
+.award-media {
+  aspect-ratio: 16 / 10; border-radius: var(--r-sm); overflow: hidden; position: relative;
+  display: grid; place-items: center; margin-bottom: 18px;
+  background: linear-gradient(155deg, rgba(232,192,113,0.10), rgba(232,192,113,0.02));
+  border: 1px solid rgba(232,192,113,0.22);
 }
-.award .medal svg { width: 30px; height: 30px; }
+.award-media .medal {
+  width: 66px; height: 66px; border-radius: 16px; display: grid; place-items: center;
+  color: var(--gold-2); background: linear-gradient(155deg, rgba(232,192,113,0.22), rgba(232,192,113,0.05));
+  border: 1px solid rgba(232,192,113,0.4); box-shadow: 0 0 22px -6px rgba(232,192,113,0.6);
+}
+.award-media .medal svg { width: 34px; height: 34px; }
+.award-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .award .tag.gold {
   align-self: flex-start; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
   color: #1a130a; font-weight: 700; padding: 5px 12px; border-radius: 999px; margin-bottom: 14px;
