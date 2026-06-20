@@ -233,7 +233,10 @@ h1, h2, h3 { line-height: 1.12; font-weight: 700; letter-spacing: -0.02em; }
 .product h3 { font-size: 1.45rem; }
 .product .price { font-size: 1.05rem; color: var(--teal-2); font-weight: 600; margin: 12px 0; }
 .product p { color: var(--muted); font-size: 0.95rem; flex: 1; }
-.product .arrow { margin-top: 18px; color: var(--teal); display: inline-flex; gap: 8px; align-items: center; font-size: 0.9rem; }
+.product .arrow { margin-top: 18px; color: var(--teal-soft); display: inline-flex; gap: 7px; align-items: center; font-size: 0.86rem; font-weight: 600; }
+.product .arrow svg { width: 15px; height: 15px; transition: transform .3s var(--ease); }
+.card.product:hover .arrow { color: var(--teal-2); }
+.card.product:hover .arrow svg { transform: translateX(4px); }
 
 /* featured / flagship product cards (image-led) */
 .featured-products { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; margin-bottom: 56px; }
